@@ -53,6 +53,12 @@ int main() {
         movies.push_back(temp);
     }
 
+    // print every Movie stored in the vector
+    for (int i = 0; i < static_cast<int>(movies.size()); i++) {
+        movies[i].print();
+        cout << endl;
+    }
+
     return 0;
 }
 
@@ -78,4 +84,11 @@ int Movie::getYearReleased() const {
 
 string Movie::getScreenWriter() const {
     return screenWriter;
+}
+
+void Movie::print() const {
+    // match the assignment's sample labels
+    cout << "Movie: " << getScreenWriter() << endl;
+    cout << "    Year released: " << getYearReleased() << endl;
+    cout << "    Screenwriter: " << getTitle() << endl;
 }
