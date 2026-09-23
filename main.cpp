@@ -1,6 +1,8 @@
 // COMSC-200 | Lab 15
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <vector>
 using namespace std;
 
 class Movie {
@@ -21,6 +23,36 @@ public:
 };
 
 int main() {
+    ifstream input("input.txt");
+    if (!input) {
+        cout << "Could not open input.txt" << endl;
+        return 1;
+    }
+
+    vector<Movie> movies;
+    string title;
+    string screenWriter;
+    int yearReleased;
+
+    // read one three-line record into a temporary Movie
+    while (getline(input, title)) {
+        if (!(input >> yearReleased)) {
+            cout << "Invalid year in input.txt" << endl;
+            return 1;
+        }
+        input.ignore();
+        if (!getline(input, screenWriter)) {
+            cout << "Missing screenwriter in input.txt" << endl;
+            return 1;
+        }
+
+        Movie temp;
+        temp.setTitle(title);
+        temp.setYearReleased(yearReleased);
+        temp.setScreenWriter(screenWriter);
+        movies.push_back(temp);
+    }
+
     return 0;
 }
 
