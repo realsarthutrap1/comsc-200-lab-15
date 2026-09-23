@@ -23,3 +23,27 @@ public:
 int main() {
     return 0;
 }
+
+void Movie::setTitle(string value) {
+    title = value;
+}
+
+void Movie::setYearReleased(int value) {
+    yearReleased = value;
+}
+
+void Movie::setScreenWriter(string value) {
+    screenWriter = value;
+}
+
+string Movie::getTitle() const {
+    return title;
+}
+
+int Movie::getYearReleased() const {
+    return yearReleased;
+}
+
+string Movie::getScreenWriter() const {
+    return screenWriter;
+}
